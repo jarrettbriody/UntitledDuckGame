@@ -6309,18 +6309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &964529118 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 415118097}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &964529121 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 415118097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &985550800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8046,7 +8034,7 @@ MonoBehaviour:
   fireMode: {fileID: 1698690603}
   ducks: []
   terrain: {fileID: 928430988}
-  player: {fileID: 267281385}
+  player: {fileID: 415217073}
 --- !u!82 &2085270385
 AudioSource:
   m_ObjectHideFlags: 0

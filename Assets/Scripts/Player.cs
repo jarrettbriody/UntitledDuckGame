@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public Camera fpsCam;
 
-    public int playerHealth = 10;
+    public GameObject gun;
+
+    public GameObject bulletPrefab;
+    public GameObject bulletSpawnPoint;
+
+    public int playerHealth = 100;
 
     public Weapon currentWeapon;
     [SerializeField] private Weapon rifle, shotgun;
@@ -15,10 +21,15 @@ public class Player : MonoBehaviour
     public bool obtainedShotgun = false;
     public bool finishedSwapping = true;
 
+    public AudioSource playerHit;
+
+    public AgentManager managerScript;
+
     // Start is called before the first frame update
     void Start()
     {
         shotgunUI.GetComponent<MeshRenderer>().enabled = false;
+        managerScript = FindObjectOfType<AgentManager>();
     }
 
     // Update is called once per frame
@@ -68,5 +79,34 @@ public class Player : MonoBehaviour
     {
         obtainedShotgun = true;
         shotgunUI.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        playerHit.PlayOneShot(playerHit.clip);
+        playerHealth -= dmg;
+        if(playerHealth <= 0) SceneManager.LoadScene("Barnyard");
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if(collision.gameObject.GetComponent<Chicken>() != null)
+            {
+                if (!collision.gameObject.GetComponent<Chicken>().isPredator)
+                {
+                    AudioSource squash = managerScript.transform.GetChild(0).GetComponent<AudioSource>();
+                    squash.PlayOneShot(squash.clip);
+                    managerScript.enemies.Remove(collision.gameObject);
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    playerHit.PlayOneShot(playerHit.clip);
+                    TakeDamage(7);
+                }
+            }
+        }
     }
 }
