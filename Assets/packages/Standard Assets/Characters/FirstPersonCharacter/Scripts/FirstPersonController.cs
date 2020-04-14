@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -42,6 +43,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        [SerializeField] private bool m_dashOnCooldown;
+        [SerializeField] private float m_dashTimer;
+        [SerializeField] private float m_dashSpeed;
+        [SerializeField] private float m_dashCooldown;
+
         // Use this for initialization
         private void Start()
         {
@@ -55,6 +61,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            m_dashOnCooldown = false;
         }
 
 
@@ -66,6 +74,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            }
+
+            if (!m_CharacterController.isGrounded && Input.GetKeyDown(KeyCode.E) && !m_dashOnCooldown)
+            {
+                StartCoroutine(Dash()); // Our dash function
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -83,8 +96,29 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+        // REALLY simple dash, feel free to change
+        IEnumerator Dash()
+        {
+            m_dashOnCooldown = true;
+            Rigidbody rbody = GetComponent<Rigidbody>();
 
-        private void PlayLandingSound()
+            Vector3 direction = transform.forward;
+            float timer = 0.0f;
+
+            //rbody.isKinematic = false;
+            while (timer < m_dashTimer)
+            {
+                timer += Time.fixedDeltaTime;
+                rbody.AddForce(direction * m_dashSpeed, ForceMode.VelocityChange);
+                yield return new WaitForFixedUpdate();
+            }
+            //rbody.isKinematic = true;
+
+            yield return new WaitForSeconds(m_dashCooldown);
+            m_dashOnCooldown = false;
+        }
+
+            private void PlayLandingSound()
         {
             m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();

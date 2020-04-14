@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class AgentManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class AgentManager : MonoBehaviour
     public List<GameObject> enemies;
     public Text ammoLeft;
 
+    public Text fireMode;
+    
     public GameObject player;
 
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class AgentManager : MonoBehaviour
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
         enemiesLeft.text = "Enemies Remaining: " + enemies.Count;
         ammoLeft.text = "Ammo: " + player.GetComponent<Player>().gunAmmoRemaining;
+        fireMode.text = "Fire Mode: " + FireModeToString();
 
         if (enemies.Count <= 0)
         {
@@ -38,5 +42,17 @@ public class AgentManager : MonoBehaviour
             SceneManager.LoadScene("Barnyard");
         }
             
+    }
+
+    private string FireModeToString()
+    {
+        if(player.GetComponent<Player>().currentWeapon.autoFire)
+        {
+            return "Auto";
+        }
+        else
+        {
+            return "Semi";
+        }
     }
 }

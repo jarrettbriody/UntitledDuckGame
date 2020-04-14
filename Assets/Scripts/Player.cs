@@ -14,11 +14,12 @@ public class Player : MonoBehaviour
 
     public int playerHealth = 100;
 
-    public float gunDamage = 10f;
-    public float gunRange = 1000f;
-    public int gunAmmoRemaining = 30;
-
-    public  ParticleSystem muzzleFlash;
+    public Weapon currentWeapon;
+    [SerializeField] private Weapon rifle, shotgun;
+    [SerializeField] private Transform rifleUI, shotgunUI, selectedWeapon, unselectedWeapon;
+    private bool rifleSelected = true;
+    public bool obtainedShotgun = false;
+    public bool finishedSwapping = true;
 
     public AudioSource playerHit;
 
@@ -27,48 +28,57 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shotgunUI.GetComponent<MeshRenderer>().enabled = false;
         managerScript = FindObjectOfType<AgentManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
-    }
-
-    void CheckInput()
-    {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Q) && obtainedShotgun)
         {
-            if(gunAmmoRemaining > 0)
-            {
-                Shoot();
-            }
+            StartCoroutine(SwapWeapon());
         }
     }
 
-    void Shoot()
+        IEnumerator SwapWeapon()
     {
-        // play particle and sound effects here
-        AudioSource a = gun.GetComponent<AudioSource>();
-        a.PlayOneShot(a.clip);
+        finishedSwapping = false;
+        currentWeapon.SwapOut();
+        currentWeapon.anim.Play("SwapOut");
 
-        bulletSpawnPoint.GetComponent<ParticleSystem>().Play();
-
-        GameObject firedBullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform);
-
-        gunAmmoRemaining--;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
+        while (!finishedSwapping)
         {
-            if (hit.transform.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
-            {
-                hit.transform.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
-                // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
-            }
+            yield return null;
         }
+
+        // Update our UI and swap weapons
+        currentWeapon = rifleSelected ? shotgun : rifle;
+        rifleUI.position = rifleSelected ? unselectedWeapon.position : selectedWeapon.position;
+        shotgunUI.position = rifleSelected ? selectedWeapon.position : unselectedWeapon.position;
+        rifle.gameObject.SetActive(!rifleSelected);
+        shotgun.gameObject.SetActive(rifleSelected);
+
+        rifleSelected = !rifleSelected;
+
+        finishedSwapping = false;
+
+        yield return new WaitForFixedUpdate(); // We have to wait so that the shotgun can initialize its values
+
+        currentWeapon.anim.Play("SwapIn");
+
+        while (!finishedSwapping)
+        {
+            yield return null;
+        }
+
+        currentWeapon.swapping = false;
+    }
+
+    public void ObtainedShotgun()
+    {
+        obtainedShotgun = true;
+        shotgunUI.GetComponent<MeshRenderer>().enabled = true;
     }
 
     public void TakeDamage(int dmg)
