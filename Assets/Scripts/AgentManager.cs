@@ -10,8 +10,8 @@ public class AgentManager : MonoBehaviour
 
     public Text ducksLeft;
 
+    public List<GameObject> chickens;
     public Text ammoLeft;
-
     public List<GameObject> ducks;
 
     public Terrain terrain;
