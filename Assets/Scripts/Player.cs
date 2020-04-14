@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && obtainedShotgun)
+        if (Input.GetKeyDown(KeyCode.Q) && obtainedShotgun && finishedSwapping)
         {
             StartCoroutine(SwapWeapon());
         }

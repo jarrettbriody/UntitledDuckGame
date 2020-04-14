@@ -2458,6 +2458,11 @@ PrefabInstance:
       propertyPath: m_JumpSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2280421355042196281, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2280421355047528537, guid: c2c71ddc8798ad84298e60227071ea95,
         type: 3}
       propertyPath: m_Name
@@ -2568,6 +2573,11 @@ PrefabInstance:
       propertyPath: shotgun
       value: 
       objectReference: {fileID: 267105399}
+    - target: {fileID: 4683481170023630875, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2c71ddc8798ad84298e60227071ea95, type: 3}
 --- !u!1001 &690961870
@@ -8554,7 +8564,7 @@ PrefabInstance:
     - target: {fileID: 2845326370742781188, guid: f6da9ae9bf4ff5e46a84606784246e20,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2845326370742781188, guid: f6da9ae9bf4ff5e46a84606784246e20,
         type: 3}
@@ -12896,7 +12906,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 749822237}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1933832767
 Light:
