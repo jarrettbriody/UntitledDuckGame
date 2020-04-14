@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         }
     }
 
-        IEnumerator SwapWeapon()
+    IEnumerator SwapWeapon()
     {
         finishedSwapping = false;
         currentWeapon.SwapOut();
