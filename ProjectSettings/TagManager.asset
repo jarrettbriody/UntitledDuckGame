@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - Duck
+  - Terrain
+  - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

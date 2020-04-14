@@ -53,14 +53,14 @@ public class Duck : MonoBehaviour
         }
         else
         {
-            if (Vector3.Dot(managerScript.cow.transform.forward, transform.position - managerScript.cow.transform.position) < 0 || (managerScript.cow.transform.position - transform.position).magnitude > 10.0f)
+            if (Vector3.Dot(managerScript.player.transform.forward, transform.position - managerScript.player.transform.position) < 0 || (managerScript.player.transform.position - transform.position).magnitude > 10.0f)
             {
-                ultForce += Seek(managerScript.cow.transform.position) * seekWeight;
+                ultForce += Seek(managerScript.player.transform.position) * seekWeight;
                 isPredator = true;
             }
             else
             {
-                ultForce += Flee(managerScript.cow.transform.position) * fleeWeight * 10;
+                ultForce += Flee(managerScript.player.transform.position) * fleeWeight * 10;
                 isPredator = false;
             }
         }
@@ -130,6 +130,12 @@ public class Duck : MonoBehaviour
             return Flee(managerScript.ducks[indexOfClosest].transform.position);
         }
         return Vector3.zero;
+    }
+
+    public void HitByRay()
+    {
+        Debug.Log("I got shot");
+        // Destroy(gameObject);
     }
 
     public void OnCollisionEnter(Collision collision)

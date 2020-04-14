@@ -11,6 +11,7 @@ public class AgentManager : MonoBehaviour
     public Text ducksLeft;
 
     public List<GameObject> chickens;
+    public Text ammoLeft;
     public List<GameObject> ducks;
 
     public Terrain terrain;
@@ -26,10 +27,11 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //hp.text = "HP: " + player.GetComponent<Cow>().hp;
+        hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
         ducksLeft.text = "Ducks Remaining: " + ducks.Count;
+        ammoLeft.text = "Ammo: " + player.GetComponent<Player>().gunAmmoRemaining;
 
-        if(ducks.Count <= 1)
+        if (ducks.Count <= 1)
             SceneManager.LoadScene("scene");
     }
 }
