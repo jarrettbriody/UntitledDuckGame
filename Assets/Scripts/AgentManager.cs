@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class AgentManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class AgentManager : MonoBehaviour
     public Text ducksLeft;
 
     public Text ammoLeft;
+
+    public Text fireMode;
 
     public List<GameObject> ducks;
 
@@ -30,8 +33,21 @@ public class AgentManager : MonoBehaviour
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
         ducksLeft.text = "Ducks Remaining: " + ducks.Count;
         ammoLeft.text = "Ammo: " + player.GetComponent<Player>().gunAmmoRemaining;
+        fireMode.text = "Fire Mode: " + FireModeToString();
 
         if (ducks.Count <= 1)
             SceneManager.LoadScene("scene");
+    }
+
+    private string FireModeToString()
+    {
+        if(player.GetComponent<Player>().autoFire)
+        {
+            return "Auto";
+        }
+        else
+        {
+            return "Semi";
+        }
     }
 }
