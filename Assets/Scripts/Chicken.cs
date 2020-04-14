@@ -9,19 +9,21 @@ public class Chicken : MonoBehaviour
 
     public bool isPredator = true;
 
-    public AudioSource cluck;
+    public int health = 30;
+
+    //public AudioSource cluck;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        managerScript = FindObjectOfType<AgentManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Random.Range(0, 1000) == 999)
-            cluck.PlayOneShot(cluck.clip);
+        //if (Random.Range(0, 1000) == 999)
+            //cluck.PlayOneShot(cluck.clip);
 
         if (Vector3.Dot(managerScript.player.transform.forward, transform.position - managerScript.player.transform.position) < 0 || (managerScript.player.transform.position - transform.position).magnitude > 10.0f)
         {
@@ -41,9 +43,21 @@ public class Chicken : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !isPredator)
         {
-            AudioSource a = managerScript.GetComponent<AudioSource>();
-            a.PlayOneShot(a.clip);
-            managerScript.chickens.Remove(gameObject);
+            AudioSource squash = managerScript.transform.GetChild(0).GetComponent<AudioSource>();
+            squash.PlayOneShot(squash.clip);
+            managerScript.enemies.Remove(gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    void HitByRay()
+    {
+        health -= 10;
+        if (health <= 0)
+        {
+            AudioSource squash = managerScript.transform.GetChild(0).GetComponent<AudioSource>();
+            squash.PlayOneShot(squash.clip);
+            managerScript.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }

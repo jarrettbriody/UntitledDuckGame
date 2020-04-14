@@ -8,30 +8,35 @@ public class AgentManager : MonoBehaviour
 {
     public Text hp;
 
-    public Text ducksLeft;
+    public Text enemiesLeft;
 
-    public List<GameObject> chickens;
+    public List<GameObject> enemies;
     public Text ammoLeft;
-    public List<GameObject> ducks;
-
-    public Terrain terrain;
 
     public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        ducks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Duck"));
+        enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
     }
 
     // Update is called once per frame
     void Update()
     {
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
-        ducksLeft.text = "Ducks Remaining: " + ducks.Count;
+        enemiesLeft.text = "Enemies Remaining: " + enemies.Count;
         ammoLeft.text = "Ammo: " + player.GetComponent<Player>().gunAmmoRemaining;
 
-        if (ducks.Count <= 1)
-            SceneManager.LoadScene("scene");
+        if (enemies.Count <= 0)
+        {
+            RoomTrigger[] triggers = FindObjectsOfType<RoomTrigger>();
+            for (int i = 0; i < triggers.Length; i++)
+            {
+                if (!triggers[i].hasTriggered) return;
+            }
+            SceneManager.LoadScene("Barnyard");
+        }
+            
     }
 }
