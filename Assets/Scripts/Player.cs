@@ -6,121 +6,67 @@ public class Player : MonoBehaviour
 {
     public Camera fpsCam;
 
-    public GameObject gun;
-
-    public GameObject bulletPrefab;
-    public GameObject bulletSpawnPoint;
-
     public int playerHealth = 10;
-    bool pickUpDelay = false;
 
-    public float gunDamage = 10f;
-    public float gunRange = 1000f;
-    public int gunAmmoRemaining = 30;
-
-    public bool autoFire = false;
-    bool autoFireDelay = false;
+    public Weapon currentWeapon;
+    [SerializeField] private Weapon rifle, shotgun;
+    [SerializeField] private Transform rifleUI, shotgunUI, selectedWeapon, unselectedWeapon;
+    private bool rifleSelected = true;
+    public bool obtainedShotgun = false;
+    public bool finishedSwapping = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shotgunUI.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
-    }
-
-    void CheckInput()
-    {
-        if(Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Q) && obtainedShotgun)
         {
-            GameObject.Find("FireModeChange").GetComponent<AudioSource>().Play();
-
-            autoFire = !autoFire;
-        }
-
-        if (!autoFire)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (gunAmmoRemaining > 0)
-                {
-                    Shoot();
-                }
-            }
-        }
-        else
-        {
-            if (!autoFireDelay)
-            {
-                if (Input.GetMouseButton(0))
-                {
-                    if (gunAmmoRemaining > 0)
-                    {
-                        StartCoroutine("ResetAutoFireDelay", 0.1f);
-
-                        Shoot();
-                    }
-                }
-            }
+            StartCoroutine(SwapWeapon());
         }
     }
 
-    IEnumerator ResetAutoFireDelay(float secondsToWait)
+        IEnumerator SwapWeapon()
     {
-        autoFireDelay = true;
+        finishedSwapping = false;
+        currentWeapon.SwapOut();
+        currentWeapon.anim.Play("SwapOut");
 
-        yield return new WaitForSeconds(secondsToWait);
-
-        autoFireDelay = false;
-    }
-
-    IEnumerator ResetPickUpDelay(float secondsToWait)
-    {
-        pickUpDelay = true;
-
-        yield return new WaitForSeconds(secondsToWait);
-
-        pickUpDelay = false;
-    }
-
-    void Shoot()
-    {
-        // play particle and sound effects here
-        AudioSource a = gun.GetComponent<AudioSource>();
-        a.PlayOneShot(a.clip);
-
-        bulletSpawnPoint.GetComponent<ParticleSystem>().Play();
-
-        GameObject firedBullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform);
-
-        gunAmmoRemaining--;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
+        while (!finishedSwapping)
         {
-            if (hit.transform.tag == "Duck") // This could be changed to a general enemy tag once more varietes are in the game
-            {
-                hit.transform.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
-                // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
-            }
+            yield return null;
         }
+
+        // Update our UI and swap weapons
+        currentWeapon = rifleSelected ? shotgun : rifle;
+        rifleUI.position = rifleSelected ? unselectedWeapon.position : selectedWeapon.position;
+        shotgunUI.position = rifleSelected ? selectedWeapon.position : unselectedWeapon.position;
+        rifle.gameObject.SetActive(!rifleSelected);
+        shotgun.gameObject.SetActive(rifleSelected);
+
+        rifleSelected = !rifleSelected;
+
+        finishedSwapping = false;
+
+        yield return new WaitForFixedUpdate(); // We have to wait so that the shotgun can initialize its values
+
+        currentWeapon.anim.Play("SwapIn");
+
+        while (!finishedSwapping)
+        {
+            yield return null;
+        }
+
+        currentWeapon.swapping = false;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    public void ObtainedShotgun()
     {
-        if(collision.transform.tag == "AmmoPickupPlatform")
-        {
-            if (!pickUpDelay)
-            {
-                gunAmmoRemaining += 15;
-
-                StartCoroutine("ResetPickUpDelay", 5f);
-            }
-        }
+        obtainedShotgun = true;
+        shotgunUI.GetComponent<MeshRenderer>().enabled = true;
     }
 }

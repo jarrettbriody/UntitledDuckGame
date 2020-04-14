@@ -32,7 +32,7 @@ public class AgentManager : MonoBehaviour
     {
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
         ducksLeft.text = "Ducks Remaining: " + ducks.Count;
-        ammoLeft.text = "Ammo: " + player.GetComponent<Player>().gunAmmoRemaining;
+        ammoLeft.text = "Ammo: " + player.GetComponent<Player>().currentWeapon.currentAmmo + " / " + player.GetComponent<Player>().currentWeapon.maxAmmo;
         fireMode.text = "Fire Mode: " + FireModeToString();
 
         if (ducks.Count <= 1)
@@ -41,7 +41,7 @@ public class AgentManager : MonoBehaviour
 
     private string FireModeToString()
     {
-        if(player.GetComponent<Player>().autoFire)
+        if(player.GetComponent<Player>().currentWeapon.autoFire)
         {
             return "Auto";
         }
