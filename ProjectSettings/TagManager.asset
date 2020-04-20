@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Fire
   - Duck
+  - Terrain
+  - AmmoPickupPlatform
+  - Floor
+  - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
