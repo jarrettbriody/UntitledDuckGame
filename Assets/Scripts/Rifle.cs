@@ -91,7 +91,7 @@ public class Rifle : Weapon
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
         {
-            if (hit.transform.tag == "Duck") // This could be changed to a general enemy tag once more varietes are in the game
+            if (hit.transform.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
             {
                 hit.transform.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
                 // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
