@@ -1,15 +1,26 @@
-https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034
+Crosshairs - https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034
 
-https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100
+Gun Sounds - https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100
 
-https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208
+Ammo Pack - https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208
 
-https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
+Rifle - https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
 
-https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
+Shotgun - https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
 
-https://www.101soundboards.com/sounds/8562-oh-yeah
+"Oh Yeah" - https://www.101soundboards.com/sounds/8562-oh-yeah
 
-https://github.com/q2apro/keyboard-keys-speedflips
+Keyboard Icons - https://github.com/q2apro/keyboard-keys-speedflips
 
-https://www.flaticon.com/free-icon/mouse-left-button_32041
+LMB Icon - https://www.flaticon.com/free-icon/mouse-left-button_32041
+
+Trailer gun sound - https://freesound.org/people/martian/sounds/182271/
+
+Trailer "Sike" Sound - https://freesound.org/people/.Andre_Onate/sounds/269488/
+
+Trailer Rock Song #1 - https://freesound.org/people/Prime45/sounds/470766/
+
+Trialer Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/
+
+
+
