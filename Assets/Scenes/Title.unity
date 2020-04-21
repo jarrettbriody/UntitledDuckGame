@@ -944,8 +944,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34479d5a27e4c2949a4dfcb8b28a952b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+  isOver: 0
   mainmenuui: {fileID: 46938500}
   creditsui: {fileID: 1360778154}
+  gameoverui: {fileID: 0}
+  gameui: {fileID: 0}
+  pauseui: {fileID: 0}
+  gamelostui: {fileID: 0}
 --- !u!1 &1130757108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,10 +1242,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1247,7 +1253,26 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034\r\n\r\nhttps://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100\r\n\r\nhttps://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208\r\n\r\nhttps://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916\r\n\r\nhttps://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194\r\n\r\nhttps://assetstore.unity.com/packages/3d/farm-animals-set-97945\r\n\r\nhttps://www.101soundboards.com/sounds/8562-oh-yeah\r\n\r\nhttps://www.dafont.com/amazdoom.font"
+  m_Text: "Crosshairs - https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034\r\n\r\nGun
+    Sounds - https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100\r\n\r\nAmmo
+    Pack - https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208\r\n\r\nRifle
+    - https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916\r\n\r\nShotgun
+    - https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194\r\n\r\n\"Oh
+    Yeah\" - https://www.101soundboards.com/sounds/8562-oh-yeah\r\n\r\nKeyboard Icons
+    - https://github.com/q2apro/keyboard-keys-speedflips\r\n\r\nLMB Icon - https://www.flaticon.com/free-icon/mouse-left-button_32041\r\n\r\nTrailer
+    gun sound - https://freesound.org/people/martian/sounds/182271/\r\n\r\nTrailer
+    \"Sike\" Sound - https://freesound.org/people/.Andre_Onate/sounds/269488/\r\n\r\nTrailer
+    Rock Song #1 - https://freesound.org/people/Prime45/sounds/470766/\r\n\r\nTrailer
+    Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/\r\n\r\nStraw
+    Texture - https://c1.wallpaperflare.com/preview/329/945/205/hay-straw-bale-harvest-nature-background-texture.jpg\r\n\r\nWood
+    Wall Texture - https://c1.wallpaperflare.com/preview/57/543/658/background-wood-texture-barn.jpg\r\n\r\nBarn
+    Texture - https://ae01.alicdn.com/kf/HTB1OJYrPFXXXXbWXVXXq6xXFXXXe/Kate-Red-Shabby-Wood-Floor-Christmas-Photography-Backdropgreen-Screen-Background-Support-Ntzc-070.jpg\r\n\r\nGravel
+    Texture - https://upload.wikimedia.org/wikipedia/commons/4/4b/Bluemetal_coarse_granite_gravel_texture.jpg\r\n\r\nGrass
+    Texture - https://p1.pxfuel.com/preview/179/201/186/grass-green-texture-background.jpg\r\n\r\nSkybox
+    - https://assetstore.unity.com/packages/2d/textures-materials/sky/classic-skybox-24923\r\n\r\nFence
+    - https://c1.wallpaperflare.com/preview/387/624/860/fence-texture-old-the-structure-of-the.jpg\r\n\r\nAnimals
+    - https://assetstore.unity.com/packages/3d/farm-animals-set-97945\r\n\r\nFont
+    - https://www.dafont.com/amazdoom.font"
 --- !u!222 &1360778156
 CanvasRenderer:
   m_ObjectHideFlags: 0

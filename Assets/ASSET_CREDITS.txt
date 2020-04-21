@@ -1,15 +1,41 @@
-https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034
+Crosshairs - https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034
 
-https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100
+Gun Sounds - https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100
 
-https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208
+Ammo Pack - https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208
 
-https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
+Rifle - https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
 
-https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
+Shotgun - https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
 
-https://assetstore.unity.com/packages/3d/farm-animals-set-97945
+"Oh Yeah" - https://www.101soundboards.com/sounds/8562-oh-yeah
 
-https://www.101soundboards.com/sounds/8562-oh-yeah
+Keyboard Icons - https://github.com/q2apro/keyboard-keys-speedflips
 
-https://www.dafont.com/amazdoom.font
+LMB Icon - https://www.flaticon.com/free-icon/mouse-left-button_32041
+
+Trailer gun sound - https://freesound.org/people/martian/sounds/182271/
+
+Trailer "Sike" Sound - https://freesound.org/people/.Andre_Onate/sounds/269488/
+
+Trailer Rock Song #1 - https://freesound.org/people/Prime45/sounds/470766/
+
+Trailer Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/
+
+Straw Texture - https://c1.wallpaperflare.com/preview/329/945/205/hay-straw-bale-harvest-nature-background-texture.jpg
+
+Wood Wall Texture - https://c1.wallpaperflare.com/preview/57/543/658/background-wood-texture-barn.jpg
+
+Barn Texture - https://ae01.alicdn.com/kf/HTB1OJYrPFXXXXbWXVXXq6xXFXXXe/Kate-Red-Shabby-Wood-Floor-Christmas-Photography-Backdropgreen-Screen-Background-Support-Ntzc-070.jpg
+
+Gravel Texture - https://upload.wikimedia.org/wikipedia/commons/4/4b/Bluemetal_coarse_granite_gravel_texture.jpg
+
+Grass Texture - https://p1.pxfuel.com/preview/179/201/186/grass-green-texture-background.jpg
+
+Skybox - https://assetstore.unity.com/packages/2d/textures-materials/sky/classic-skybox-24923
+
+Fence - https://c1.wallpaperflare.com/preview/387/624/860/fence-texture-old-the-structure-of-the.jpg
+
+Animals - https://assetstore.unity.com/packages/3d/farm-animals-set-97945
+
+Font - https://www.dafont.com/amazdoom.font
