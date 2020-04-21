@@ -13,6 +13,8 @@ public class CowProjectile : MonoBehaviour
 
     public AgentManager managerScript;
 
+    public GameObject particles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,13 @@ public class CowProjectile : MonoBehaviour
         dir = (midPoint).normalized;
         transform.forward = dir;
         GetComponent<Rigidbody>().AddForce(dir * speed, ForceMode.Impulse);
+        particles = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        particles.transform.forward = (GetComponent<Rigidbody>().velocity * -1).normalized;
     }
 
     public void OnCollisionEnter(Collision collision)

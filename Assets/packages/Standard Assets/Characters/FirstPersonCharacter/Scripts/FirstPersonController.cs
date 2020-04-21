@@ -43,6 +43,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        private UIButtonCallbacks UI;
+
         [SerializeField] private bool m_dashOnCooldown;
         [SerializeField] private float m_dashTimer;
         [SerializeField] private float m_dashSpeed;
@@ -63,6 +65,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
 
             m_dashOnCooldown = false;
+
+            UI = FindObjectOfType<UIButtonCallbacks>();
         }
 
 
@@ -270,7 +274,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+            if (!UI.isPaused)
+                m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
 

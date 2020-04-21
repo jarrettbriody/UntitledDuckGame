@@ -14,6 +14,7 @@ public abstract class Weapon : MonoBehaviour
     public bool autoFire = false;
     public Animator anim;
     public bool swapping = false;
+    public UIButtonCallbacks UI;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public abstract class Weapon : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         fpsCam = Camera.main;
         anim = GetComponent<Animator>();
+        UI = FindObjectOfType<UIButtonCallbacks>();
     }
 
     public void AddAmmo(int amount)

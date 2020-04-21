@@ -14,15 +14,22 @@ public class Duck : MonoBehaviour
 
     public int health = 20;
 
+    public AudioSource quack;
+    public AudioSource shoot;
+
     // Start is called before the first frame update
     void Start()
     {
         managerScript = FindObjectOfType<AgentManager>();
+        quack = transform.GetChild(0).GetComponent<AudioSource>();
+        shoot = transform.GetChild(1).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Random.Range(0, 1000) == 999)
+            quack.PlayOneShot(quack.clip);
         RaycastHit raycastHit;
         if (Physics.Raycast(transform.position, managerScript.player.transform.position - transform.position, out raycastHit, 50.0f))
         {
@@ -45,6 +52,7 @@ public class Duck : MonoBehaviour
             Vector3 projStart = transform.position;
             projStart.y += 0.5f;
             Instantiate(duckProjectile, projStart, Quaternion.identity);
+            shoot.PlayOneShot(shoot.clip);
         }
         else fireTimer += Time.deltaTime;
     }

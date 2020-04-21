@@ -15,7 +15,7 @@ public class Rifle : Weapon
     {
         if (!swapping)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B) && !UI.isPaused)
             {
                 GameObject.Find("FireModeChange").GetComponent<AudioSource>().Play();
 
@@ -24,7 +24,7 @@ public class Rifle : Weapon
 
             if (!autoFire)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !UI.isPaused)
                 {
                     if (currentAmmo > 0)
                     {
@@ -40,7 +40,7 @@ public class Rifle : Weapon
             {
                 if (!autoFireDelay)
                 {
-                    if (Input.GetMouseButton(0))
+                    if (Input.GetMouseButton(0) && !UI.isPaused)
                     {
                         if (currentAmmo > 0)
                         {

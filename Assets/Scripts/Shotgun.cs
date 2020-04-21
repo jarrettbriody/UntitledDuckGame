@@ -20,7 +20,7 @@ public class Shotgun : Weapon
 
         if (!fireDelay && !swapping)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !UI.isPaused)
             {
                 if (currentAmmo > 0)
                 {
