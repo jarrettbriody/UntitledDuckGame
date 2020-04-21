@@ -9,8 +9,6 @@ public class AgentManager : MonoBehaviour
 {
     public Text hp;
 
-    public Text enemiesLeft;
-
     public List<GameObject> enemies;
     public Text ammoLeft;
 
@@ -28,7 +26,6 @@ public class AgentManager : MonoBehaviour
     void Update()
     {
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
-        enemiesLeft.text = "Enemies Remaining: " + enemies.Count;
         ammoLeft.text = "Ammo: " + player.GetComponent<Player>().currentWeapon.currentAmmo + " / " + player.GetComponent<Player>().currentWeapon.maxAmmo;
         fireMode.text = "Fire Mode: " + FireModeToString();
 

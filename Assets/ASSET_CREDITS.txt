@@ -9,3 +9,7 @@ https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
 https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194
 
 https://www.101soundboards.com/sounds/8562-oh-yeah
+
+https://github.com/q2apro/keyboard-keys-speedflips
+
+https://www.flaticon.com/free-icon/mouse-left-button_32041
