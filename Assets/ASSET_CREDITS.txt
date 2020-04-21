@@ -20,7 +20,20 @@ Trailer "Sike" Sound - https://freesound.org/people/.Andre_Onate/sounds/269488/
 
 Trailer Rock Song #1 - https://freesound.org/people/Prime45/sounds/470766/
 
-Trialer Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/
+Trailer Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/
+
+Straw Texture - https://c1.wallpaperflare.com/preview/329/945/205/hay-straw-bale-harvest-nature-background-texture.jpg
+
+Wood Wall Texture - https://c1.wallpaperflare.com/preview/57/543/658/background-wood-texture-barn.jpg
+
+Barn Texture - https://ae01.alicdn.com/kf/HTB1OJYrPFXXXXbWXVXXq6xXFXXXe/Kate-Red-Shabby-Wood-Floor-Christmas-Photography-Backdropgreen-Screen-Background-Support-Ntzc-070.jpg
+
+Gravel Texture - https://upload.wikimedia.org/wikipedia/commons/4/4b/Bluemetal_coarse_granite_gravel_texture.jpg
+
+Grass Texture - https://p1.pxfuel.com/preview/179/201/186/grass-green-texture-background.jpg
+
+Skybox - https://assetstore.unity.com/packages/2d/textures-materials/sky/classic-skybox-24923
+
 
 
 

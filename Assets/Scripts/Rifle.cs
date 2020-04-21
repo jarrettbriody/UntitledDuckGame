@@ -102,7 +102,6 @@ public class Rifle : Weapon
 
         if (closest != null && closest.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
         {
-            Debug.Log(closest.name);
             closest.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
                                                    // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
         }
