@@ -85,7 +85,10 @@ public class Player : MonoBehaviour
     {
         playerHit.PlayOneShot(playerHit.clip);
         playerHealth -= dmg;
-        if(playerHealth <= 0) SceneManager.LoadScene("Barnyard");
+        if(playerHealth <= 0)
+        {
+            FindObjectOfType<UIButtonCallbacks>().ShowGameLost();
+        }
     }
 
     public void OnCollisionEnter(Collision collision)

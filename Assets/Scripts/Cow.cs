@@ -15,15 +15,22 @@ public class Cow : MonoBehaviour
 
     public int health = 100;
 
+    public AudioSource moo;
+    public AudioSource shoot;
+
     // Start is called before the first frame update
     void Start()
     {
         managerScript = FindObjectOfType<AgentManager>();
+        moo = transform.GetChild(0).GetComponent<AudioSource>();
+        shoot = transform.GetChild(1).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Random.Range(0, 1000) == 999)
+            moo.PlayOneShot(moo.clip);
         if ((transform.position - managerScript.player.transform.position).magnitude < range)
         {
             RaycastHit raycastHit;
@@ -61,6 +68,7 @@ public class Cow : MonoBehaviour
             Vector3 projStart = transform.position;
             projStart.y += 1.3f;
             Instantiate(cowProjectile, projStart, Quaternion.identity);
+            shoot.PlayOneShot(shoot.clip);
         }
         else fireTimer += Time.deltaTime;
     }

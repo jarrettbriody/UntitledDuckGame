@@ -11,19 +11,20 @@ public class Chicken : MonoBehaviour
 
     public int health = 30;
 
-    //public AudioSource cluck;
+    public AudioSource cluck;
 
     // Start is called before the first frame update
     void Start()
     {
         managerScript = FindObjectOfType<AgentManager>();
+        cluck = transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Random.Range(0, 1000) == 999)
-            //cluck.PlayOneShot(cluck.clip);
+        if (Random.Range(0, 1000) == 999 && !isPredator)
+            cluck.PlayOneShot(cluck.clip);
 
         if (Vector3.Dot(managerScript.player.transform.forward, transform.position - managerScript.player.transform.position) < 0 || (managerScript.player.transform.position - transform.position).magnitude > 10.0f)
         {

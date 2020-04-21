@@ -25,6 +25,10 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && !FindObjectOfType<UIButtonCallbacks>().isOver)
+        {
+            FindObjectOfType<UIButtonCallbacks>().Pause();
+        }
         hp.text = "HP: " + player.GetComponent<Player>().playerHealth;
         ammoLeft.text = "Ammo: " + player.GetComponent<Player>().currentWeapon.currentAmmo + " / " + player.GetComponent<Player>().currentWeapon.maxAmmo;
         fireMode.text = "Fire Mode: " + FireModeToString();
@@ -36,7 +40,7 @@ public class AgentManager : MonoBehaviour
             {
                 if (!triggers[i].hasTriggered) return;
             }
-            SceneManager.LoadScene("Barnyard");
+            FindObjectOfType<UIButtonCallbacks>().ShowGameOver();
         }
             
     }
