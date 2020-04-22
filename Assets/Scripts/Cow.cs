@@ -13,10 +13,13 @@ public class Cow : MonoBehaviour
     public float fireCD;
     private float fireTimer;
 
+    public const int MAX_HEALTH = 100;
     public int health = 100;
 
     public AudioSource moo;
     public AudioSource shoot;
+
+    Vector2 healthUIScreenPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +61,10 @@ public class Cow : MonoBehaviour
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.destination = managerScript.player.transform.position;
         }
+
+        // For OnGUI()
+        healthUIScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        healthUIScreenPosition.y = Screen.height - healthUIScreenPosition.y;
     }
 
     public void Fire()
@@ -83,5 +90,12 @@ public class Cow : MonoBehaviour
             managerScript.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void OnGUI()
+    {
+        Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60, 20), health + "/" + MAX_HEALTH);
     }
 }

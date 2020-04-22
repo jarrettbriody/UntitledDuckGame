@@ -9,9 +9,12 @@ public class Chicken : MonoBehaviour
 
     public bool isPredator = true;
 
+    public const int MAX_HEALTH = 30;
     public int health = 30;
 
     public AudioSource cluck;
+
+    Vector2 healthUIScreenPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,11 @@ public class Chicken : MonoBehaviour
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.destination = (transform.position - managerScript.player.transform.position).normalized * 5 + transform.position;
         }
+
+        // For OnGUI()
+        healthUIScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        healthUIScreenPosition.y = Screen.height - healthUIScreenPosition.y;
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -61,5 +69,12 @@ public class Chicken : MonoBehaviour
             managerScript.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void OnGUI()
+    {
+        Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60 ,20), health + "/" + MAX_HEALTH);
     }
 }

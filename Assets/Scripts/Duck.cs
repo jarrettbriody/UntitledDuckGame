@@ -12,10 +12,13 @@ public class Duck : MonoBehaviour
     public float fireCD;
     private float fireTimer;
 
+    public const int MAX_HEALTH = 20;
     public int health = 20;
 
     public AudioSource quack;
     public AudioSource shoot;
+
+    Vector2 healthUIScreenPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,10 @@ public class Duck : MonoBehaviour
                 Fire();
             }
         }
+
+        // For OnGUI()
+        healthUIScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        healthUIScreenPosition.y = Screen.height - healthUIScreenPosition.y;
     }
 
     public void Fire()
@@ -67,5 +74,12 @@ public class Duck : MonoBehaviour
             managerScript.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void OnGUI()
+    {
+        Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60, 20), health + "/" + MAX_HEALTH);
     }
 }
