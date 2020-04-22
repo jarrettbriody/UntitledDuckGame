@@ -42,4 +42,4 @@ Font - https://www.dafont.com/amazdoom.font
 
 Hitmarker - https://www.cleanpng.com/png-major-league-gaming-android-1667765/
 
-
+Smoke PNG for Particle Effect - http://johnstejskal.com/wp/how-to-create-realistic-smoke-in-unity/

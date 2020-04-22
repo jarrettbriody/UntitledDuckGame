@@ -3436,6 +3436,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1622997700813948104, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db747d31fa1eb5d4ca55596870597dd2, type: 2}
+    - target: {fileID: 2127761949248143130, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db747d31fa1eb5d4ca55596870597dd2, type: 2}
+    - target: {fileID: 2127761949248143131, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2127761949248143131, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2280421355042037177, guid: c2c71ddc8798ad84298e60227071ea95,
         type: 3}
       propertyPath: m_JumpSpeed
@@ -3560,6 +3580,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921600224021418091, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921600224021418091, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921600224021418091, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921600224021418091, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921600224021418091, guid: c2c71ddc8798ad84298e60227071ea95,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2c71ddc8798ad84298e60227071ea95, type: 3}
