@@ -35,7 +35,8 @@ public class UIButtonCallbacks : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Barnyard");
+        SceneManager.LoadScene("Not Broken");
+        Time.timeScale = 1.0f;
     }
 
     public void ShowCredits()
