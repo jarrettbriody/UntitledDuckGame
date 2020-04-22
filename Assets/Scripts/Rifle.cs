@@ -87,15 +87,23 @@ public class Rifle : Weapon
 
         currentAmmo--;
 
-        RaycastHit hit;
+        RaycastHit firstHit; 
+        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out firstHit, gunRange);
+        Transform closest = firstHit.transform;
 
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, gunRange))
+        foreach (RaycastHit hit in Physics.RaycastAll(fpsCam.transform.position, fpsCam.transform.forward, gunRange))
         {
-            if (hit.transform.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
+            if (Vector3.Distance(fpsCam.transform.position, hit.transform.position) < Vector3.Distance(fpsCam.transform.position, closest.position) 
+                && hit.transform.tag == "Wall" || hit.transform.tag == "Floor" || hit.transform.tag == "Enemy")
             {
-                hit.transform.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
-                // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
+                closest = hit.transform;
             }
+        }
+
+        if (closest != null && closest.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
+        {
+            closest.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
+                                                   // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
         }
     }
 }
