@@ -40,4 +40,6 @@ Animals - https://assetstore.unity.com/packages/3d/farm-animals-set-97945
 
 Font - https://www.dafont.com/amazdoom.font
 
+Hitmarker - https://www.cleanpng.com/png-major-league-gaming-android-1667765/
+
 

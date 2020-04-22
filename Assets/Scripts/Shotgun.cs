@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Shotgun : Weapon
@@ -9,6 +10,13 @@ public class Shotgun : Weapon
     [SerializeField] private AudioClip cocked;
 
     private bool fireDelay = false;
+
+    Image hitmarker;
+
+    void Awake()
+    {
+        hitmarker = GameObject.Find("Hitmarker").GetComponent<Image>();
+    }
 
     void Update()
     {
@@ -83,8 +91,18 @@ public class Shotgun : Weapon
                 {
                     hit.transform.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
                                                            // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
+                    StartCoroutine(HitmarkerDelay());
                 }
             }
         }
+    }
+
+    IEnumerator HitmarkerDelay()
+    {
+        hitmarker.enabled = true;
+
+        yield return new WaitForSeconds(0.1f);
+
+        hitmarker.enabled = false;
     }
 }

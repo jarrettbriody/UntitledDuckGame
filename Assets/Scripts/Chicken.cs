@@ -15,6 +15,7 @@ public class Chicken : MonoBehaviour
     public AudioSource cluck;
 
     Vector2 healthUIScreenPosition;
+ 
 
     // Start is called before the first frame update
     void Start()

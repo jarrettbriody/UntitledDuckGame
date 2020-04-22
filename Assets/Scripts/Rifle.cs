@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Rifle : Weapon
 {
     private bool autoFireDelay = false;
+    Image hitmarker;
+
+    void Awake()
+    {
+        hitmarker = GameObject.Find("Hitmarker").GetComponent<Image>();
+    }
 
     void Update()
     {
@@ -103,7 +110,19 @@ public class Rifle : Weapon
         if (closest != null && closest.tag == "Enemy") // This could be changed to a general enemy tag once more varietes are in the game
         {
             closest.SendMessage("HitByRay"); // include a void HitByRay() method in other scripts that should react to getting shot
-                                                   // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
+                                             // firedBullet.GetComponent<Bullet>().raycastHitPosition = hit.transform.position;
+            StartCoroutine(HitmarkerDelay());
         }
     }
+
+    
+    IEnumerator HitmarkerDelay()
+    {
+        hitmarker.enabled = true;
+
+        yield return new WaitForSeconds(0.1f);
+
+        hitmarker.enabled = false;
+    }
+    
 }
