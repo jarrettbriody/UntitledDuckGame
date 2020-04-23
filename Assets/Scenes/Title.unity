@@ -410,10 +410,10 @@ RectTransform:
   m_Father: {fileID: 1360778157}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -235}
-  m_SizeDelta: {x: 196.01, y: 70}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -98.005005, y: -35}
+  m_SizeDelta: {x: 196.01001, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &291215268
 MonoBehaviour:
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 399069762}
   - component: {fileID: 399069761}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,6 +952,7 @@ MonoBehaviour:
   gameui: {fileID: 0}
   pauseui: {fileID: 0}
   gamelostui: {fileID: 0}
+  titleText: {fileID: 399069759}
 --- !u!1 &1130757108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,44 +1236,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 8
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Crosshairs - https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034\r\n\r\nGun
-    Sounds - https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100\r\n\r\nAmmo
-    Pack - https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208\r\n\r\nRifle
-    - https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916\r\n\r\nShotgun
-    - https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194\r\n\r\n\"Oh
-    Yeah\" - https://www.101soundboards.com/sounds/8562-oh-yeah\r\n\r\nKeyboard Icons
-    - https://github.com/q2apro/keyboard-keys-speedflips\r\n\r\nLMB Icon - https://www.flaticon.com/free-icon/mouse-left-button_32041\r\n\r\nTrailer
-    gun sound - https://freesound.org/people/martian/sounds/182271/\r\n\r\nTrailer
-    \"Sike\" Sound - https://freesound.org/people/.Andre_Onate/sounds/269488/\r\n\r\nTrailer
-    Rock Song #1 - https://freesound.org/people/Prime45/sounds/470766/\r\n\r\nTrailer
-    Rock Song #2 - https://freesound.org/people/djawesomecoolguy/sounds/405109/\r\n\r\nStraw
-    Texture - https://c1.wallpaperflare.com/preview/329/945/205/hay-straw-bale-harvest-nature-background-texture.jpg\r\n\r\nWood
-    Wall Texture - https://c1.wallpaperflare.com/preview/57/543/658/background-wood-texture-barn.jpg\r\n\r\nBarn
-    Texture - https://ae01.alicdn.com/kf/HTB1OJYrPFXXXXbWXVXXq6xXFXXXe/Kate-Red-Shabby-Wood-Floor-Christmas-Photography-Backdropgreen-Screen-Background-Support-Ntzc-070.jpg\r\n\r\nGravel
-    Texture - https://upload.wikimedia.org/wikipedia/commons/4/4b/Bluemetal_coarse_granite_gravel_texture.jpg\r\n\r\nGrass
-    Texture - https://p1.pxfuel.com/preview/179/201/186/grass-green-texture-background.jpg\r\n\r\nSkybox
-    - https://assetstore.unity.com/packages/2d/textures-materials/sky/classic-skybox-24923\r\n\r\nFence
-    - https://c1.wallpaperflare.com/preview/387/624/860/fence-texture-old-the-structure-of-the.jpg\r\n\r\nAnimals
-    - https://assetstore.unity.com/packages/3d/farm-animals-set-97945\r\n\r\nFont
-    - https://www.dafont.com/amazdoom.font"
+  m_Text: "Developed by: Jarrett Briody, Nicholas Bazos, Coehl Gleckner, Robert MacLeod\n\n\nSimple
+    Modern Crosshairs: Pack 1 by Visyde Interactives \r\n(https://assetstore.unity.com/packages/2d/gui/icons/simple-modern-crosshairs-pack-1-79034)\r\n\r\nFog
+    of War Gun Sound FX Free by Into The Void Sound Design\r\n(https://assetstore.unity.com/packages/audio/sound-fx/weapons/fog-of-war-gun-sound-fx-free-66100)\r\n\r\nAmmunition
+    packl (demo) by Evgeny Korchuganov\r\n(https://assetstore.unity.com/packages/3d/ammunition-pack-demo-82208)\r\n\r\nSci-Fi
+    Gun Light by Factory of Models \r\n(https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916)\r\n\r\nShotgun
+    Sci-Fi Weapon by MLX \r\n(https://assetstore.unity.com/packages/3d/props/guns/shotgun-sci-fi-weapon-100194)\r\n\r\n\"Oh
+    Yeah\" from Duke Nukem Forever Soundboard\r\n(https://www.101soundboards.com/sounds/8562-oh-yeah)\r\n\r\nFree
+    Keyboard Graphics and Key Icons for Screencasts by Kai Noack\r\n(https://github.com/q2apro/keyboard-keys-speedflips)\r\n\r\nMouse
+    Left Button free icon by Freepik \r\n(https://www.flaticon.com/free-icon/mouse-left-button_32041)\r\n\r\nGun
+    for Lui.wav by martian\r\n(https://freesound.org/people/martian/sounds/182271/)\r\n\r\nah
+    yeah scratch things w eko 2.wav by .Andre_Onate  \r\n(https://freesound.org/people/.Andre_Onate/sounds/269488/)\r\n\r\nrock
+    music loop.mp3 by Prime45\r\n(https://freesound.org/people/Prime45/sounds/470766/)\r\n\r\nrock
+    music by djawesomecoolguy\r\n(https://freesound.org/people/djawesomecoolguy/sounds/405109/)\r\n\r\nStraw
+    Texture from Wallpaper Flare\r\n(https://c1.wallpaperflare.com/preview/329/945/205/hay-straw-bale-harvest-nature-background-texture.jpg)\r\n\r\nWood
+    Wall Texture from Wallpaper Flare\r\n(https://c1.wallpaperflare.com/preview/57/543/658/background-wood-texture-barn.jpg)\r\n\r\nKate
+    Red Shabby Wood Floor Christmas Photography Backdropgreen Screen Background Support
+    Ntzc-070 from aliexpress.com\r\n(https://ae01.alicdn.com/kf/HTB1OJYrPFXXXXbWXVXXq6xXFXXXe/Kate-Red-Shabby-Wood-Floor-Christmas-Photography-Backdropgreen-Screen-Background-Support-Ntzc-070.jpg)\r\n\r\nBluemetal
+    coarse granite gravel texture.jpg from Wikimedia Commons\r\n(https://commons.wikimedia.org/wiki/File:Bluemetal_coarse_granite_gravel_texture.jpg)\r\n\r\nGrass
+    Texture from pxfuel.com\r\n(https://www.pxfuel.com/en/free-photo-jhdny)\r\n\r\nClassic
+    Skybox by mgsvevo \r\n(https://assetstore.unity.com/packages/2d/textures-materials/sky/classic-skybox-24923)\r\n\r\nFence
+    Texture from Wallpaper Flare\r\n(https://c1.wallpaperflare.com/preview/387/624/860/fence-texture-old-the-structure-of-the.jpg)\r\n\r\nFarm
+    Animals Set by Vertex Cat \r\n(https://assetstore.unity.com/packages/3d/farm-animals-set-97945)\r\n\r\nAmazDooM
+    Font by Amazingmax\r\n(https://www.dafont.com/amazdoom.font)\r\n\r\nMajor League
+    Gaming Angle by Ilumin \r\n(https://www.cleanpng.com/png-major-league-gaming-android-1667765/)\r\n\r\nSmoke
+    PNG from \"How to create realistic smoke in Unity\" by John Slejskal  \r\n(http://johnstejskal.com/wp/how-to-create-realistic-smoke-in-unity/)\r"
 --- !u!222 &1360778156
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1298,7 +1304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -23}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 928.5, y: 394.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1615875289

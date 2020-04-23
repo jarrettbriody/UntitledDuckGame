@@ -16,6 +16,8 @@ public class UIButtonCallbacks : MonoBehaviour
     public GameObject pauseui;
     public GameObject gamelostui;
 
+    public GameObject titleText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,19 +37,21 @@ public class UIButtonCallbacks : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Not Broken");
+        SceneManager.LoadScene("Barnyard");
         Time.timeScale = 1.0f;
     }
 
     public void ShowCredits()
     {
         mainmenuui.SetActive(false);
+        titleText.SetActive(false);
         creditsui.SetActive(true);
     }
 
     public void ShowMainMenu()
     {
         mainmenuui.SetActive(true);
+        titleText.SetActive(true);
         creditsui.SetActive(false);
     }
 
@@ -55,7 +59,7 @@ public class UIButtonCallbacks : MonoBehaviour
     {
         gameoverui.SetActive(true);
         gameui.SetActive(false);
-        Time.timeScale = 0.0f;
+        // Time.timeScale = 0.0f; --> COMMENTING OUT BECAUSE ON RESTART THE PLAYER IS FROZEN BUT WITHOUT MENU IS A LITTLE WACKY HOWEVER STILL RESTARTS FINE
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         isOver = true;

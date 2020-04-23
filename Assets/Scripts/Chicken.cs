@@ -15,6 +15,7 @@ public class Chicken : MonoBehaviour
     public AudioSource cluck;
 
     Vector2 healthUIScreenPosition;
+    bool displayHealthUI = false;
  
 
     // Start is called before the first frame update
@@ -47,6 +48,11 @@ public class Chicken : MonoBehaviour
         healthUIScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
         healthUIScreenPosition.y = Screen.height - healthUIScreenPosition.y;
 
+        if(health < MAX_HEALTH)
+        {
+            displayHealthUI = true;
+        }
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -74,8 +80,11 @@ public class Chicken : MonoBehaviour
 
     void OnGUI()
     {
-        Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
+        if (displayHealthUI)
+        {
+            Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60 ,20), health + "/" + MAX_HEALTH);
+            GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60, 20), health + "/" + MAX_HEALTH);
+        }
     }
 }

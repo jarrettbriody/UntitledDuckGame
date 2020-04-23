@@ -20,6 +20,7 @@ public class Cow : MonoBehaviour
     public AudioSource shoot;
 
     Vector2 healthUIScreenPosition;
+    bool displayHealthUI = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +66,11 @@ public class Cow : MonoBehaviour
         // For OnGUI()
         healthUIScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
         healthUIScreenPosition.y = Screen.height - healthUIScreenPosition.y;
+
+        if (health < MAX_HEALTH)
+        {
+            displayHealthUI = true;
+        }
     }
 
     public void Fire()
@@ -94,8 +100,11 @@ public class Cow : MonoBehaviour
 
     void OnGUI()
     {
-        Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
+        if (displayHealthUI)
+        {
+            Vector2 targetPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60, 20), health + "/" + MAX_HEALTH);
+            GUI.Box(new Rect(healthUIScreenPosition.x, healthUIScreenPosition.y, 60, 20), health + "/" + MAX_HEALTH);
+        }
     }
 }
